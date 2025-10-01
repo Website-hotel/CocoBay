@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CocoBay Unawatuna - Luxury Beach Resort in Sri Lanka</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes bounceSlow {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+        .animate-fadeInUp {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+        .animate-bounce-slow {
+            animation: bounceSlow 2s infinite;
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(220, 20, 60, 0.3), rgba(247, 82, 112, 0.3)), url('http://static.photos/travel/1200x630/1');
+background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+:root {
+            --primary-color: #DC143C;
+            --primary-dark: #B01030;
+            --primary-light: #F75270;
+            --primary-extra-light: #FDEBD0;
+            --secondary-color: #F7CAC9;
+        }
+body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(220, 20, 60, 0.3), rgba(247, 82, 112, 0.3)), url('http://static.photos/travel/1200x630/1');
+background-size: cover;
+            background-position: center;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .room-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .room-card {
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .testimonial-card {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: scale(1.03);
+        }
+        h1, h2, h3 {
+            animation: slideUp 1s ease-out;
+        }
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .btn-primary {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(92, 184, 92, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(92, 184, 92, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(92, 184, 92, 0); }
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50 backdrop-blur-sm bg-opacity-90">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-display font-bold text-[var(--primary-dark)]">
+                <span class="text-[var(--primary-color)]">Coco</span><span class="text-[var(--secondary-color)]">Bay</span> Unawatuna
+            </a>
+<div class="hidden md:flex space-x-10">
+                <a href="#" class="text-[var(--primary-dark)] font-semibold hover:text-[var(--primary-color)] transition duration-300">Home</a>
+                <a href="#rooms" class="text-gray-700 font-semibold hover:text-[var(--primary-color)] transition duration-300">Rooms</a>
+                <a href="#facilities" class="text-gray-700 font-semibold hover:text-[var(--primary-color)] transition duration-300">Facilities</a>
+                <a href="#gallery" class="text-gray-700 font-semibold hover:text-[var(--primary-color)] transition duration-300">Gallery</a>
+                <a href="#contact" class="text-gray-700 font-semibold hover:text-[var(--primary-color)] transition duration-300">Contact</a>
+            </div>
+            <button class="md:hidden focus:outline-none p-2 rounded-lg hover:bg-gray-100 transition" id="menu-toggle">
+                <i data-feather="menu" class="w-6 h-6 text-[var(--primary-dark)]"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white w-full px-6 py-3 shadow-lg" id="mobile-menu">
+            <a href="#" class="block py-3 px-4 font-semibold text-[var(--primary-dark)] hover:bg-[var(--primary-extra-light)] rounded-lg transition">Home</a>
+            <a href="#rooms" class="block py-3 px-4 font-semibold text-gray-700 hover:bg-[var(--primary-extra-light)] rounded-lg transition">Rooms</a>
+            <a href="#facilities" class="block py-3 px-4 font-semibold text-gray-700 hover:bg-[var(--primary-extra-light)] rounded-lg transition">Facilities</a>
+            <a href="#gallery" class="block py-3 px-4 font-semibold text-gray-700 hover:bg-[var(--primary-extra-light)] rounded-lg transition">Gallery</a>
+            <a href="#contact" class="block py-3 px-4 font-semibold text-gray-700 hover:bg-[var(--primary-extra-light)] rounded-lg transition">Contact</a>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center justify-center text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-30"></div>
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h1 class="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fadeInUp">Your <span class="text-amber-300">Dream</span> Beach Escape Awaits</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto font-medium">Experience <span class="font-bold">5-star luxury</span> on Sri Lanka's most breathtaking shoreline</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                            <a href="#rooms" class="bg-[var(--primary-color)] hover:bg-[var(--primary-dark)] text-white px-8 py-3 rounded-full font-bold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center">
+<i data-feather="star" class="mr-2 w-5 h-5"></i> Explore Rooms
+                </a>
+                            <a href="#contact" class="bg-white hover:bg-gray-100 text-[var(--primary-color)] px-8 py-3 rounded-full font-bold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center">
+<i data-feather="calendar" class="mr-2 w-5 h-5"></i> Book Instantly
+                </a>
+            </div>
+            <div class="mt-12 animate-bounce-slow">
+                <a href="#about" class="block text-white">
+                    <i data-feather="chevron-down" class="w-8 h-8 mx-auto"></i>
+                </a>
+            </div>
+        </div>
+            <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[var(--primary-color)] to-transparent opacity-90"></div>
+</section>
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-[var(--primary-extra-light)]">
+<div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8 relative">
+                    <img src="http://static.photos/travel/1024x576/2" alt="CocoBay Unawatuna" class="rounded-xl shadow-2xl w-full transform hover:scale-102 transition duration-500">
+                    <div class="absolute -bottom-4 -right-4 bg-[var(--primary-color)] text-white p-4 rounded-lg shadow-lg">
+<div class="text-center">
+                            <div class="text-3xl font-bold">4.9</div>
+                            <div class="flex justify-center">
+                                <i data-feather="star" class="fill-current w-4 h-4"></i>
+                                <i data-feather="star" class="fill-current w-4 h-4"></i>
+                                <i data-feather="star" class="fill-current w-4 h-4"></i>
+                                <i data-feather="star" class="fill-current w-4 h-4"></i>
+                                <i data-feather="star" class="fill-current w-4 h-4"></i>
+                            </div>
+                            <div class="text-xs mt-1">500+ Reviews</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="font-display text-3xl md:text-4xl font-bold mb-6">Where <span class="text-amber-600">Paradise</span> Meets Luxury</h2>
+                    <p class="text-lg mb-6 font-medium">Nestled along the <span class="font-bold text-amber-700">golden shores</span> of Unawatuna Beach, CocoBay offers <span class="underline">award-winning</span> accommodations, <span class="font-bold">exceptional service</span>, and <span class="italic">breathtaking ocean views</span> from every room.</p>
+                    <p class="mb-8 text-gray-700">Our resort blends authentic Sri Lankan hospitality with modern <span class="font-bold">5-star amenities</span>, creating an unforgettable tropical escape. Just steps from the beach, enjoy our <span class="text-amber-600">infinity pool</span>, <span class="text-amber-600">world-class spa</span>, and <span class="text-amber-600">gourmet dining</span>.</p>
+<div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center">
+                            <i data-feather="wifi" class="text-amber-600 mr-2"></i>
+                            <span>Free WiFi</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="coffee" class="text-amber-600 mr-2"></i>
+                            <span>Breakfast Included</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="umbrella" class="text-amber-600 mr-2"></i>
+                            <span>Beachfront</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="droplet" class="text-amber-600 mr-2"></i>
+                            <span>Infinity Pool</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Rooms Section -->
+    <section id="rooms" class="py-20 bg-gradient-to-b from-[var(--secondary-color)] to-[var(--primary-extra-light)]">
+<div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-3xl md:text-5xl font-bold mb-4">Your <span class="text-amber-600">Luxury</span> Sanctuary</h2>
+                <p class="max-w-2xl mx-auto text-lg font-medium">Indulge in our <span class="font-bold">signature accommodations</span>, where every detail is crafted for <span class="italic">unparalleled comfort</span> and relaxation.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Room 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-xl transition-all duration-500 hover:shadow-2xl group">
+                    <div class="relative overflow-hidden h-72">
+                        <img src="http://static.photos/travel/640x360/3" alt="Deluxe Room" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                        <div class="absolute bottom-0 left-0 p-6 text-white">
+                            <h3 class="font-display text-2xl font-bold">Oceanview <span class="text-amber-300">Deluxe</span></h3>
+                            <div class="flex items-center">
+                                <span class="text-lg font-bold mr-2">$120</span>
+                                <span class="text-sm">/ night</span>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-amber-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            MOST POPULAR
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="flex text-amber-500">
+                                <i data-feather="star" class="fill-current"></i>
+                                <i data-feather="star" class="fill-current"></i>
+                                <i data-feather="star" class="fill-current"></i>
+                                <i data-feather="star" class="fill-current"></i>
+                                <i data-feather="star" class="fill-current"></i>
+                            </div>
+                            <span class="text-sm text-gray-600 font-medium">35 sqm • Ocean View • Balcony</span>
+                        </div>
+                        <p class="mb-6 text-gray-700">Spacious sanctuary with <span class="font-bold">king-size bed</span>, private balcony, and <span class="font-bold">panoramic ocean views</span>. Includes premium amenities and daily housekeeping.</p>
+                        <a href="#contact" class="block w-full bg-amber-600 hover:bg-amber-700 text-white text-center py-3 px-6 rounded-lg font-bold transition duration-300 transform hover:scale-[1.02] shadow-md">
+                            BOOK THIS ROOM
+                        </a>
+                    </div>
+                </div>
+<!-- Room 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="http://static.photos/travel/640x360/4" alt="Beachfront Suite" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                        <div class="absolute bottom-0 left-0 p-4 text-white">
+                            <h3 class="font-display text-xl font-bold">Beachfront Suite</h3>
+                            <p class="text-sm">From $180/night</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="flex text-amber-500">
+                                <i data-feather="star" class="fill-current"></i>
+                                <i data-feather="star" class="fill-current"></i>
+                                <i data-feather="star" class="fill-current"></i>
+                                <i data-feather="star" class="fill-current"></i>
+                                <i data-feather="star" class="fill-current"></i>
+                            </div>
+                            <span class="text-sm text-gray-600">50 sqm</span>
+                        </div>
+                        <p class="mb-4">Luxurious suite with direct beach access, living area, and premium amenities.</p>
+                        <a href="#" class="text-amber-600 hover:text-amber-700 font-medium flex items-center">
+                            View Details <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Room 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="http://static.photos/travel/640x360/5" alt="Family Villa" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
+                        <div class="absolute bottom-0 left-0 p-4 text-white">
+                            <h3 class="font-display text-xl font-bold">Family Villa</h3>
+                            <p class="text-sm">From $250/night</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="flex text-amber-500">
+                                <i data-feather="star" class="fill-current"></i>
+                                <i data-feather="star" class="fill-current"></i>
+                                <i data-feather="star" class="fill-current"></i>
+                                <i data-feather="star" class="fill-current"></i>
+                                <i data-feather="star" class="fill-current"></i>
+                            </div>
+                            <span class="text-sm text-gray-600">80 sqm</span>
+                        </div>
+                        <p class="mb-4">Two-bedroom villa with private garden, kitchenette, and plunge pool.</p>
+                        <a href="#" class="text-amber-600 hover:text-amber-700 font-medium flex items-center">
+                            View Details <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+            <a href="#" class="inline-block bg-[var(--primary-color)] hover:bg-[var(--primary-dark)] text-white px-8 py-3 rounded-full font-medium transition duration-300 transform hover:scale-105 btn-primary">
+View All Rooms
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section id="facilities" class="py-16 bg-[var(--primary-extra-light)]">
+<div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">Resort Facilities</h2>
+                <p class="max-w-2xl mx-auto">Enjoy world-class amenities designed to enhance your stay at CocoBay Unawatuna.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-gray-50 p-6 rounded-lg text-center hover:shadow-lg transition">
+        <div class="bg-[var(--secondary-color)] w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+<i data-feather="droplet" class="text-amber-600 w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold mb-2">Infinity Pool</h3>
+                    <p class="text-gray-600">Stunning ocean-view infinity pool with swim-up bar</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg text-center hover:shadow-lg transition">
+                    <div class="bg-amber-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i data-feather="utensils" class="text-amber-600 w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold mb-2">Restaurant</h3>
+                    <p class="text-gray-600">Beachfront dining with fresh seafood and local cuisine</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg text-center hover:shadow-lg transition">
+                    <div class="bg-amber-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i data-feather="umbrella" class="text-amber-600 w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold mb-2">Private Beach</h3>
+                    <p class="text-gray-600">Exclusive beach area with sun loungers and cabanas</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg text-center hover:shadow-lg transition">
+                    <div class="bg-amber-100 w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4">
+                        <i data-feather="heart" class="text-amber-600 w-8 h-8"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold mb-2">Spa</h3>
+                    <p class="text-gray-600">Ayurvedic treatments and relaxing massages</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-16 bg-[var(--secondary-color)]">
+<div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">Gallery</h2>
+                <p class="max-w-2xl mx-auto">A glimpse of the CocoBay Unawatuna experience</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="overflow-hidden rounded-lg">
+                    <img src="http://static.photos/travel/640x360/6" alt="Resort View" class="w-full h-64 object-cover hover:scale-110 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg">
+                    <img src="http://static.photos/travel/640x360/7" alt="Pool Area" class="w-full h-64 object-cover hover:scale-110 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg">
+                    <img src="http://static.photos/travel/640x360/8" alt="Beach View" class="w-full h-64 object-cover hover:scale-110 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg">
+                    <img src="http://static.photos/travel/640x360/9" alt="Restaurant" class="w-full h-64 object-cover hover:scale-110 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg">
+                    <img src="http://static.photos/travel/640x360/10" alt="Spa" class="w-full h-64 object-cover hover:scale-110 transition duration-500">
+                </div>
+                <div class="overflow-hidden rounded-lg">
+                    <img src="http://static.photos/travel/640x360/11" alt="Sunset" class="w-full h-64 object-cover hover:scale-110 transition duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-[var(--primary-extra-light)]">
+<div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">Guest Reviews</h2>
+                <p class="max-w-2xl mx-auto">What our guests say about their experience at CocoBay Unawatuna</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="testimonial-card bg-white p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-[var(--primary-color)] mr-2">
+<i data-feather="star" class="fill-current"></i>
+                            <i data-feather="star" class="fill-current"></i>
+                            <i data-feather="star" class="fill-current"></i>
+                            <i data-feather="star" class="fill-current"></i>
+                            <i data-feather="star" class="fill-current"></i>
+                        </div>
+                    </div>
+                    <p class="mb-6 italic">"Absolutely stunning location with the most attentive staff. The beachfront suite was beyond our expectations with breathtaking views every morning."</p>
+                    <div class="flex items-center">
+                        <img src="http://static.photos/people/200x200/1" alt="Sarah J." class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Sarah J.</h4>
+                            <p class="text-sm text-gray-600">London, UK</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card bg-white p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-amber-500 mr-2">
+                            <i data-feather="star" class="fill-current"></i>
+                            <i data-feather="star" class="fill-current"></i>
+                            <i data-feather="star" class="fill-current"></i>
+                            <i data-feather="star" class="fill-current"></i>
+                            <i data-feather="star" class="fill-current"></i>
+                        </div>
+                    </div>
+                    <p class="mb-6 italic">"The infinity pool was our favorite spot - watching sunsets with a cocktail in hand. The food at the restaurant was exceptional, especially the fresh seafood."</p>
+                    <div class="flex items-center">
+                        <img src="http://static.photos/people/200x200/2" alt="Michael T." class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Michael T.</h4>
+                            <p class="text-sm text-gray-600">Sydney, Australia</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card bg-white p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-amber-500 mr-2">
+                            <i data-feather="star" class="fill-current"></i>
+                            <i data-feather="star" class="fill-current"></i>
+                            <i data-feather="star" class="fill-current"></i>
+                            <i data-feather="star" class="fill-current"></i>
+                            <i data-feather="star" class="fill-current"></i>
+                        </div>
+                    </div>
+                    <p class="mb-6 italic">"Perfect family vacation! The kids loved the beach and pool, while we enjoyed the spa treatments. The staff went above and beyond to make our stay memorable."</p>
+                    <div class="flex items-center">
+                        <img src="http://static.photos/people/200x200/3" alt="The Rodriguez Family" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">The Rodriguez Family</h4>
+                            <p class="text-sm text-gray-600">Toronto, Canada</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact & Booking Section -->
+    <section id="contact" class="py-20 bg-gradient-to-r from-[var(--primary-extra-light)] to-[var(--secondary-color)]">
+<div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row">
+                <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-8">
+                    <h2 class="font-display text-3xl md:text-4xl font-bold mb-6">Contact Us</h2>
+                    <p class="mb-6">Have questions or ready to book your stay? Reach out to our friendly team.</p>
+                    
+                    <div class="mb-6">
+                        <div class="flex items-start mb-4">
+                        <i data-feather="map-pin" class="text-[var(--primary-color)] mr-4 mt-1"></i>
+<div>
+                                <h3 class="font-bold">Address</h3>
+                                <p>Beach Road, Unawatuna, Sri Lanka</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start mb-4">
+                        <i data-feather="phone" class="text-[var(--primary-color)] mr-4 mt-1"></i>
+<div>
+                                <h3 class="font-bold">Phone</h3>
+                                <p>+94 91 222 3344</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                        <i data-feather="mail" class="text-[var(--primary-color)] mr-4 mt-1"></i>
+<div>
+                                <h3 class="font-bold">Email</h3>
+                                <p>reservations@cocobayunawatuna.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-[var(--primary-color)] hover:bg-[var(--primary-dark)] text-white w-10 h-10 rounded-full flex items-center justify-center transform hover:scale-110 transition">
+<i data-feather="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="bg-amber-600 hover:bg-amber-700 text-white w-10 h-10 rounded-full flex items-center justify-center">
+                            <i data-feather="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="bg-amber-600 hover:bg-amber-700 text-white w-10 h-10 rounded-full flex items-center justify-center">
+                            <i data-feather="twitter" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 bg-white p-8 rounded-lg shadow-lg">
+                    <h2 class="font-display text-3xl font-bold mb-6"><span class="text-[var(--primary-color)]">Secure</span> Your Paradise Getaway</h2>
+                        <div class="flex items-center bg-[var(--primary-color)] rounded-lg p-4 mb-6">
+                        <i data-feather="alert-circle" class="text-[var(--primary-extra-light)] mr-3 w-6 h-6"></i>
+                        <span class="font-medium text-[var(--primary-extra-light)]">Limited availability - Book now to guarantee your dates!</span>
+</div>
+<form>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label for="check-in" class="block text-sm font-medium mb-1">Check-in</label>
+                                <input type="date" id="check-in" class="w-full px-4 py-2 border rounded-lg focus:ring-amber-500 focus:border-amber-500">
+                            </div>
+                            <div>
+                                <label for="check-out" class="block text-sm font-medium mb-1">Check-out</label>
+                                <input type="date" id="check-out" class="w-full px-4 py-2 border rounded-lg focus:ring-amber-500 focus:border-amber-500">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label for="adults" class="block text-sm font-medium mb-1">Adults</label>
+                                <select id="adults" class="w-full px-4 py-2 border rounded-lg focus:ring-amber-500 focus:border-amber-500">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4+</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="children" class="block text-sm font-medium mb-1">Children</label>
+                                <select id="children" class="w-full px-4 py-2 border rounded-lg focus:ring-amber-500 focus:border-amber-500">
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3+</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label for="room-type" class="block text-sm font-medium mb-1">Room Type</label>
+                            <select id="room-type" class="w-full px-4 py-2 border rounded-lg focus:ring-amber-500 focus:border-amber-500">
+                                <option>Deluxe Room</option>
+                                <option>Beachfront Suite</option>
+                                <option>Family Villa</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="w-full bg-gradient-to-r from-[var(--primary-color)] to-[var(--primary-dark)] hover:from-[var(--primary-dark)] hover:to-[var(--primary-dark)] text-white py-4 rounded-lg font-bold transition duration-300 transform hover:scale-[1.02] shadow-lg flex items-center justify-center">
+<i data-feather="lock" class="mr-2 w-5 h-5"></i> SECURE YOUR STAY NOW
+</button>
+</form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[var(--primary-dark)] text-[var(--primary-extra-light)] py-12">
+<div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="font-display text-xl font-bold mb-4">CocoBay Unawatuna</h3>
+                    <p class="mb-4">Luxury beachfront resort in the heart of Sri Lanka's southern coast.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-[var(--primary-color)] hover:text-[var(--primary-dark)]">
+<i data-feather="facebook"></i>
+                        </a>
+                        <a href="#" class="text-[var(--secondary-color)] hover:text-[var(--primary-light)]">
+<i data-feather="instagram"></i>
+                        </a>
+                        <a href="#" class="text-amber-400 hover:text-amber-300">
+                            <i data-feather="twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-display text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-amber-400 transition">Home</a></li>
+                        <li><a href="#rooms" class="hover:text-amber-400 transition">Rooms</a></li>
+                        <li><a href="#facilities" class="hover:text-amber-400 transition">Facilities</a></li>
+                        <li><a href="#gallery" class="hover:text-amber-400 transition">Gallery</a></li>
+                        <li><a href="#contact" class="hover:text-amber-400 transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-display text-lg font-bold mb-4">Contact</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i data-feather="map-pin" class="mr-2 mt-1 w-4 h-4 text-amber-400"></i>
+                            <span>Beach Road, Unawatuna, Sri Lanka</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="phone" class="mr-2 w-4 h-4 text-amber-400"></i>
+                            <span>+94 91 222 3344</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="mail" class="mr-2 w-4 h-4 text-amber-400"></i>
+                            <span>reservations@cocobayunawatuna.com</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-display text-lg font-bold mb-4">Newsletter</h3>
+                    <p class="mb-4">Subscribe for special offers and updates</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 w-full rounded-l-lg focus:outline-none text-gray-800">
+                        <button type="submit" class="bg-[var(--primary-color)] hover:bg-[var(--primary-dark)] px-4 rounded-r-lg">
+<i data-feather="send" class="w-5 h-5"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-sm">
+                <p>&copy; 2023 CocoBay Unawatuna. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="fixed inset-0 bg-[var(--primary-extra-light)] z-50 flex flex-col items-center justify-center">
+<div class="relative">
+            <div class="loader animate-spin rounded-full border-t-4 border-[var(--primary-color)] border-solid h-20 w-20 mb-6"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+                <i data-feather="home" class="w-8 h-8 text-[var(--primary-color)]"></i>
+            </div>
+        </div>
+        <h2 class="text-3xl font-display font-bold text-[var(--primary-dark)] animate-pulse mt-4">
+            <span class="text-[var(--primary-color)]">Coco</span>Bay Unawatuna
+        </h2>
+        <p class="text-gray-600 mt-2">Loading your tropical paradise...</p>
+    </div>
+<script>
+        // Enhanced Booking Urgency
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show limited availability message
+            setTimeout(function() {
+                const limitedAlert = document.createElement('div');
+                limitedAlert.className = 'fixed bottom-4 right-4 bg-amber-600 text-white px-6 py-3 rounded-lg shadow-xl z-50 animate-bounce';
+                limitedAlert.innerHTML = `
+                    <div class="flex items-center">
+                        <i data-feather="clock" class="mr-2 w-5 h-5"></i>
+                        <span class="font-bold">Only 2 rooms left for your selected dates!</span>
+                    </div>`;
+                document.body.appendChild(limitedAlert);
+                feather.replace();
+                
+                // Remove after 5 seconds
+                setTimeout(() => {
+                    limitedAlert.remove();
+                }, 5000);
+            }, 10000);
+            
+            // Add room view counter
+            const viewCounts = document.querySelectorAll('.room-card');
+            viewCounts.forEach(room => {
+                const count = Math.floor(Math.random() * 100) + 10;
+                const counter = document.createElement('div');
+                counter.className = 'absolute bottom-4 right-4 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs';
+                counter.innerHTML = `<i data-feather="eye" class="inline w-3 h-3 mr-1"></i> Viewed ${count}+ times today`;
+                room.querySelector('.relative').appendChild(counter);
+            });
+            feather.replace();
+        });
+// Preload images
+        const images = [
+            'http://static.photos/travel/1200x630/1',
+            'http://static.photos/travel/1024x576/2',
+            'http://static.photos/travel/640x360/3',
+            'http://static.photos/travel/640x360/4',
+            'http://static.photos/travel/640x360/5'
+        ];
+        
+        images.forEach(img => {
+            new Image().src = img;
+        });
+
+        // Loading screen
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loading-screen').style.transition = 'opacity 0.5s ease';
+                document.getElementById('loading-screen').style.opacity = '0';
+                setTimeout(function() {
+                    document.getElementById('loading-screen').style.display = 'none';
+                }, 500);
+            }, 3000);
+        });
+// Animate elements on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                if (elementPosition < screenPosition) {
+                    element.classList.add('animate__animated', 'animate__fadeInUp');
+                }
+            });
+        }
+
+        // Initialize animations
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll();
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('animate__animated', 'animate__fadeInDown');
+            
+            // Change menu icon based on state
+            if (mobileMenu.classList.contains('hidden')) {
+                feather.replace();
+            } else {
+                menuToggle.innerHTML = feather.icons.x.toSvg();
+            }
+        });
+// Replace feather icons
+        feather.replace();
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
