@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading | CocoBay Unawatuna</title>
+    <style>
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes pulse {
+            0% { opacity: 0.8; transform: scale(0.98); }
+            50% { opacity: 1; transform: scale(1.02); }
+            100% { opacity: 0.8; transform: scale(0.98); }
+        }
+        @keyframes wave {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0); }
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, var(--primary-extra-light), var(--secondary-color));
+display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+        }
+        .loading-container {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+        .loader {
+            border: 6px solid rgba(92, 184, 92, 0.1);
+            border-top: 6px solid var(--primary-color);
+border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+            box-shadow: 0 10px 30px rgba(92, 184, 92, 0.2);
+        }
+        .loading-text {
+            color: var(--primary-color);
+font-size: 26px;
+            font-weight: 700;
+            animation: pulse 1.5s infinite;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .subtext {
+            color: #666;
+            margin-top: 8px;
+            font-size: 16px;
+        }
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"
+            fill="var(--primary-color)"
+opacity="0.3"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"/></svg>');
+            background-size: cover;
+            animation: wave 8s linear infinite;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-container">
+        <div class="loader"></div>
+        <div class="loading-text">CocoBay Unawatuna</div>
+        <div class="subtext">Loading your tropical escape...</div>
+    </div>
+    <div class="wave"></div>
+<script>
+        // Preload main page assets
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.href = 'index.html';
+        link.as = 'document';
+        document.head.appendChild(link);
+
+        setTimeout(function() {
+            window.location.href = "index.html";
+        }, 3000);
+</script>
+</body>
+</html>
